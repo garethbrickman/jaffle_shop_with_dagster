@@ -13,7 +13,7 @@ env:
   DAGSTER_CLOUD_URL: "http://gary-dagster-test.dagster.cloud"
   DAGSTER_CLOUD_ORGANIZATION: "gary-dagster-test"
   DAGSTER_CLOUD_API_TOKEN: ${{ secrets.DAGSTER_CLOUD_API_TOKEN }}
-  ENABLE_FAST_DEPLOYS: 'true'
+  ENABLE_FAST_DEPLOYS: 'false'
   PYTHON_VERSION: '3.10'
   DAGSTER_CLOUD_FILE: 'dagster_cloud.yaml'
   DAGSTER_PROJECT_NAME: "jaffle_shop_with_dagster"
