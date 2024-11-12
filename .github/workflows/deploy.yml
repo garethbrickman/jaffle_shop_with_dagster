@@ -19,8 +19,6 @@ env:
   DAGSTER_CLOUD_URL: "http://gary-dagster-test.dagster.cloud"
   DAGSTER_CLOUD_ORGANIZATION: "gary-dagster-test"
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  DAGSTER_CLOUD_FILE: 'dagster_cloud.yaml'
-  DAGSTER_PROJECT_NAME: "jaffle_shop_with_dagster"
   
 
 jobs:
@@ -69,18 +67,6 @@ jobs:
       - name: Install setuptools
         if: steps.prerun.outputs.result == 'pex-deploy'
         run: ${{ steps.setup-python-version.outputs.python-path }} -m pip install setuptools
-        shell: bash
-
-      - name: Prepare DBT project for deployment
-        if: steps.prerun.outputs.result == 'pex-deploy'
-        # --upgrade-strategy eager picks up newer packages that are required for things to work
-        run: |
-          python -m pip install pip --upgrade
-          cd project-repo/${{ env.DAGSTER_PROJECT_NAME }}
-          pip install . --upgrade --upgrade-strategy eager
-          dagster-dbt project prepare-and-package --file ${{ env.DAGSTER_PROJECT_NAME }}/project.py
-          # The cli command below can be used to manage syncing the prod manifest to branches if state_path is set on the DbtProject
-          # dagster-cloud ci dagster-dbt project manage-state --file ${{ env.DAGSTER_PROJECT_NAME }}/project.py
         shell: bash
 
       - name: Run PEX build
