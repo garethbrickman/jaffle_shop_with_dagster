@@ -1,7 +1,7 @@
 from setuptools import find_packages, setup
 
-DAGSTER_VERSION = "1.8.7"
-DAGSTER_LIBRARY_VERSION = "0.24." + DAGSTER_VERSION.split(".")[2]
+DAGSTER_VERSION = "1.9.0"
+DAGSTER_LIBRARY_VERSION = "0.25." + DAGSTER_VERSION.split(".")[2]
 
 setup(
     name="jaffle_shop_with_dagster",
