@@ -1,6 +1,6 @@
 from setuptools import find_packages, setup
 
-DAGSTER_VERSION = "1.9.0"
+DAGSTER_VERSION = "1.9.6"
 DAGSTER_LIBRARY_VERSION = "0.25." + DAGSTER_VERSION.split(".")[2]
 
 setup(
