@@ -13,7 +13,3 @@ def jaffle_shop_dbt_assets(context: AssetExecutionContext, dbt: DbtCliResource):
     dbt_build_args = ["build"]
 
     yield from dbt.cli(dbt_build_args, context=context).stream()
-
-# @asset(deps=[get_asset_key_for_model([jaffle_shop_dbt_assets], "customers")])
-# def customers_downstream_of_dbt_asset(context: AssetExecutionContext, config: MyDbtConfig):
-#     context.log.info(config.exclude_stg_models)
