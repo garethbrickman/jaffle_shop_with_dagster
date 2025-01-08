@@ -51,7 +51,7 @@ jobs:
           cd project-repo
           ls -lah
           shopt -s dotglob
-          mv dagster/* .
+          mv jaffle_shop_with_dagster/* .
           ls -lah
           cd ..
 
@@ -63,9 +63,9 @@ jobs:
           python -m pip install pip --upgrade
           cd project-repo
           pip install . --upgrade --upgrade-strategy eager
-          dagster-dbt project prepare-for-deployment --file ndr/project.py
+          dagster-dbt project prepare-for-deployment --file jaffle_shop_with_dagster/project.py
           # The cli command below can be used to manage syncing the prod manifest to branches if state_path is set on the DbtProject
-          # dagster-cloud ci dagster-dbt project manage-state --file ndr/project.py
+          # dagster-cloud ci dagster-dbt project manage-state --file jaffle_shop_with_dagster/project.py
         shell: bash
 
       - name: Python Executable Deploy
