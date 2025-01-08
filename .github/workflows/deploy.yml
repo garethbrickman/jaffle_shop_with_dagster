@@ -50,8 +50,12 @@ jobs:
         run: |
           cd project-repo
           ls -lah
+          mkdir tmp_jaffle_shop_with_dagster
           shopt -s dotglob
-          mv jaffle_shop_with_dagster/* .
+          mv jaffle_shop_with_dagster/* tmp_jaffle_shop_with_dagster
+          rm -rf jaffle_shop_with_dagster
+          mv tmp_jaffle_shop_with_dagster/* .
+          rm -rf tmp_jaffle_shop_with_dagster
           ls -lah
           cd ..
 
